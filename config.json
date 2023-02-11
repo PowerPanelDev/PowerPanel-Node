@@ -1,0 +1,28 @@
+{
+    "node_id": 1,
+    "node_token": "",
+    "node_port": {
+        "proxy": 9500,
+        "webman": 9501,
+        "websocket": 9502,
+        "event": 9503
+    },
+    "panel_endpoint": "",
+    "panel_token": "",
+    "storage_path": {
+        "instance_data": "/data/power-data"
+    },
+    "timezone": "Asia/Shanghai",
+    "docker": {
+        "socket": "unix:///var/run/docker.sock",
+        "dns": [
+            "114.114.114.114",
+            "119.29.29.29"
+        ]
+    },
+    "max_token_count": 1024,
+    "max_package_size": 12582912,
+    "max_upload_slice_size": 10485760,
+    "max_editable_size": 131072,
+    "report_stats_interval": 180
+}
