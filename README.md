@@ -2,6 +2,16 @@
 
 > 本项目使用 Workerman、Webman、Swoole。
 
+### 安装
+
+`swoole-cli` 可在 Swoole 官网下载 [https://www.swoole.com/download](https://www.swoole.com/download)。
+
+**请注意：不要使用带有 Swoole 的 PHP-CLI，已知此方法将导致 Workerman 运行异常。**
+
+```shell
+composer install
+```
+
 ### 启动
 
 #### 开发模式
