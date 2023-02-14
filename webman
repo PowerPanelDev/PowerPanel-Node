@@ -7,7 +7,6 @@ use Webman\Console\Util;
 use support\Container;
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/app/bootstrap.php';
 
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
     require_once __DIR__ . '/support/bootstrap.php';

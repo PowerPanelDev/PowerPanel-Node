@@ -4,9 +4,9 @@
 
 ### 安装
 
-`swoole-cli` 可在 Swoole 官网下载 [https://www.swoole.com/download](https://www.swoole.com/download)。
+`swoole-cli` 可在 Swoole 官网下载 [https://www.swoole.com/download](https://www.swoole.com/download)，或可使用 `pecl install swoole` 命令安装 Swoole 拓展。
 
-**请注意：不要使用带有 Swoole 的 PHP-CLI，已知此方法将导致 Workerman 运行异常。**
+当前使用 memory_limit 为 0 的 PHP CLI 启动时会出现问题，Webman 的下一个发行版中将解决这个问题。
 
 ```shell
 composer install
@@ -17,13 +17,13 @@ composer install
 #### 开发模式
 
 ```shell
-./swoole-cli webman start
+./swoole-cli boot start
 ```
 
 #### 生产环境
 
 ```shell
-./swoole-cli webman start -d
+./swoole-cli boot start -d
 ```
 
 ### 进程列表

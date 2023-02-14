@@ -4,7 +4,7 @@ return [
 
     'phar_file_output_dir'    => BASE_PATH . DIRECTORY_SEPARATOR . 'build',
 
-    'phar_filename'     => 'node',
+    'phar_filename'     => 'node.phar',
 
     'signature_algorithm' => Phar::SHA256, //set the signature algorithm for a phar and apply it. The signature algorithm must be one of Phar::MD5, Phar::SHA1, Phar::SHA256, Phar::SHA512, or Phar::OPENSSL.
 
