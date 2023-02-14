@@ -12,4 +12,10 @@ class Config
         if (!isset(self::$config)) self::$config = json_decode(file_get_contents('config.json'), true);
         return self::$config;
     }
+
+    static public function Init()
+    {
+        if (!is_file('config.json'))
+            copy(base_path() . '/config.example.json', 'config.json');
+    }
 }
