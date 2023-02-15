@@ -13,11 +13,11 @@ class Panel
     public string $endpoint;
     public string $token;
 
-    public function __construct()
+    public function __construct($endpoint = NULL, $token = NULL)
     {
         $config = Config::Get();
-        $this->endpoint = $config['panel_endpoint'];
-        $this->token = $config['panel_token'];
+        $this->endpoint = $endpoint ?: $config['panel_endpoint'];
+        $this->token = $token ?: $config['panel_token'];
     }
 
     public function get(string $path)

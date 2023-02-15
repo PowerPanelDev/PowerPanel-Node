@@ -4,6 +4,9 @@ use app\model\Table;
 use app\util\Config;
 use Swoole\Lock;
 
+// 若不存在配置文件则初始化
+Config::Init();
+
 error_reporting(E_ALL);
 date_default_timezone_set(Config::Get()['timezone']);
 
