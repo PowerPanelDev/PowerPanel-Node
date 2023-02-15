@@ -38,8 +38,8 @@ class Build extends Command
         }
 
         $phar_file = rtrim($phar_file_output_dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $phar_filename;
-        if (file_exists($phar_file)) {
-            unlink($phar_file);
+        if (file_exists(rtrim($phar_file, '.phar'))) {
+            unlink(rtrim($phar_file, '.phar'));
         }
 
         $exclude_pattern = config('plugin.webman.console.app.exclude_pattern', '');
