@@ -88,7 +88,7 @@ class Listener extends Process
         go(function () use ($instance, $appConfig) {
             $client = $this->docker->getClient();
             $client->setHeaders(['Host' => 'localhost']);
-            $client->upgrade('/containers/' . $instance->uuid . '/attach/ws?stream=1');
+            $client->upgrade('/containers/' . $instance->uuid . '/attach/ws?stream=1&stdout=1');
 
             $this->attaching[$instance->uuid] = $client;
 
