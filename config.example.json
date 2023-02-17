@@ -2,10 +2,9 @@
     "node_id": 1,
     "node_token": "",
     "node_port": {
-        "proxy": 9500,
-        "webman": 9501,
-        "websocket": 9502,
-        "event": 9503
+        "webman": 9500,
+        "websocket": 9501,
+        "event": 9502
     },
     "panel_endpoint": "",
     "panel_token": "",

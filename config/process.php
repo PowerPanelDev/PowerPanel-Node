@@ -14,13 +14,28 @@
  */
 
 use app\process\Event;
-use app\process\Proxy;
 use app\process\WebSocket;
 use app\util\Config;
 use Workerman\Worker;
 
 return [
     // File update detection and automatic reload
+    'websocket' => [
+        'handler' => WebSocket::class,
+        'listen'  => 'websocket://0.0.0.0:' . Config::Get()['node_port']['websocket'],
+        'transport' => Config::Get()['tls']['enable'] ? 'ssl' : 'tcp',
+        'context' => Config::Get()['tls']['enable'] ? [
+            'ssl' => [
+                'local_cert'  => Config::Get()['tls']['crt'],
+                'local_pk'    => Config::Get()['tls']['key'],
+                'verify_peer' => false
+            ]
+        ] : []
+    ],
+    'event' => [
+        'handler' => Event::class,
+        'listen'  => 'websocket://127.0.0.1:' . Config::Get()['node_port']['event']
+    ],
     'monitor' => [
         'handler' => process\Monitor::class,
         'reloadable' => false,
@@ -43,17 +58,5 @@ return [
                 'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',
             ]
         ]
-    ],
-    'event' => [
-        'handler' => Event::class,
-        'listen'  => 'websocket://127.0.0.1:' . Config::Get()['node_port']['event']
-    ],
-    'websocket' => [
-        'handler' => WebSocket::class,
-        'listen'  => 'websocket://127.0.0.1:' . Config::Get()['node_port']['websocket']
-    ],
-    'proxy' => [
-        'handler' => Proxy::class,
-        'listen'  => 'tcp://0.0.0.0:' . Config::Get()['node_port']['proxy']
     ]
 ];
