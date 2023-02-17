@@ -17,8 +17,14 @@ use app\util\Config;
 
 return [
     'listen' => 'http://127.0.0.1:' . Config::Get()['node_port']['webman'],
-    'transport' => 'tcp',
-    'context' => [],
+    'transport' => Config::Get()['tls']['enable'] ? 'ssl' : 'tcp',
+    'context' => Config::Get()['tls']['enable'] ? [
+        'ssl' => [
+            'local_cert'  => Config::Get()['tls']['crt'],
+            'local_pk'    => Config::Get()['tls']['key'],
+            'verify_peer' => false
+        ]
+    ] : [],
     'name' => 'webman',
     'count' => 1,
     'user' => '',
