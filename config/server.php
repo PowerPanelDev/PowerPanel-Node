@@ -16,7 +16,7 @@
 use app\util\Config;
 
 return [
-    'listen' => 'http://127.0.0.1:' . Config::Get()['node_port']['webman'],
+    'listen' => 'http://0.0.0.0:' . Config::Get()['node_port']['webman'],
     'transport' => Config::Get()['tls']['enable'] ? 'ssl' : 'tcp',
     'context' => Config::Get()['tls']['enable'] ? [
         'ssl' => [
